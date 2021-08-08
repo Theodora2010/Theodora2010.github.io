@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<head>
+
+    <script defer src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'></script>
+</head>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Arizonia&family=MonteCarlo&family=Pacifico&display=swap');
+
+
+    body {
+        background: linear-gradient(40deg, #acf6f6, #f6acac);
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #box {
+        box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .box-shape {
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        width: 60%;
+        height: 80%;
+        border: 1px solid rgb(16 35 67);
+        border-radius: 25px;
+        background-color: #acacf6;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #navbar {
+        width: 100%;
+        background-color: #acd1f6;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 2px solid #430576;
+    }
+
+    .menu {
+        display: flex;
+        flex-flow: column;
+    }
+
+        .menu ul {
+            display: flex;
+            flex-flow: row;
+            list-style-type: none;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            height: 50px;
+        }
+
+        .menu li {
+            font-weight: bold;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+            .menu li a {
+                text-decoration: none;
+                color: #430576;
+            }
+
+                .menu li a:hover {
+                    color: #d19dfb;
+                }
+
+    .responsive-menu {
+        display: none;
+    }
+
+    label[for="icon"] {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        color: black;
+        z-index: 100;
+    }
+
+    #icon {
+        display: none;
+    }
+
+    .lab:hover {
+        color: #bd4646;
+    }
+
+    svg.hamburger {
+        display: none;
+    }
+
+    .logo {
+        font-family: 'MonteCarlo', cursive;
+        font-weight: bold;
+        font-size: 30px;
+        text-shadow: 1px 2px 1px #e8cefd;
+        text-indent: 5%;
+        margin: 0;
+        word-spacing: 7px;
+    }
+
+    .lower {
+        vertical-align: sub;
+    }
+
+    h1 {
+        font-family: 'Century Gothic';
+        font-size: 25px;
+        color: #430576;
+        text-indent: 50px;
+        margin-top: 30px;
+    }
+
+    h4 {
+        text-indent: 10%;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .text-shape {
+        text-align: justify;
+        font-style: normal;
+        font-family: 'Century Gothic';
+        line-height: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-decoration-thickness: 5px;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .sub-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 40%;
+        height: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+        .sub-section p {
+            text-align: center;
+        }
+
+    .Portofolio {
+        width: 80%;
+    }
+
+    .content-img {
+        position: relative;
+    }
+
+        .content-img div {
+            position: absolute;
+            padding: 3%;
+            text-indent: 3%;
+            margin-left: 10%;
+            margin-right: 10%;
+            top: 5%;
+            align-items: center;
+            width: 75%;
+            justify-content: center;
+            height: fit-content;
+            background: #4305769c;
+            color: #e6eff7;
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0s, opacity 0.8s linear;
+        }
+
+        .content-img:hover {
+            cursor: pointer;
+        }
+
+            .content-img:hover img {
+                opacity: 0.3;
+            }
+
+            .content-img:hover div {
+                visibility: visible;
+                opacity: 0.8;
+                font-size: 20px;
+            }
+
+    hr {
+        box-shadow: #430576 5px 5px 5px;
+        margin-top: 15px;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .date {
+        border: 1px dotted #808080;
+        background-color: #908fff;
+        padding: 12px;
+        color: #3e4042;
+        margin-right: auto;
+        margin-left: auto;
+        font-weight: bold;
+        width: fit-content;
+    }
+
+    .center {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        width: 80%;
+    }
+
+    .preview {
+        width: 100%;
+        border: 1px solid #430576;
+        box-shadow: rgba(0,0,0,0.4) 12px 12px 20px;
+    }
+
+
+    .skills {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        color: #430576;
+    }
+
+    form {
+        width: 70%;
+        border: 1px solid #430576;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        box-shadow: rgb(0 0 0 / 40%) 5px 5px 5px;
+        background-image: radial-gradient( #b3b3cc, #8080ff );
+    }
+
+    fieldset {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+    }
+
+    .fieldset {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    textarea {
+        width: 95%;
+        height: 100px;
+        padding: 2%;
+    }
+
+    #submit {
+        width: 100px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        background-image: radial-gradient( #e6e6e6, #595959);
+    }
+
+    footer {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .responsive-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+    }
+
+    
+    @media (max-width: 1100px) {
+        .box-shape {
+            width: 75%;
+        }
+
+        .menu ul {
+            display: none;
+        }
+
+        svg.hamburger {
+            display: block;
+        }
+
+        .responsive-menu {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            position: fixed;
+            top: -100vh;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 0;
+            z-index: 6;
+            transition: top 1s;
+        }
+
+            .responsive-menu ul {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: space-between;
+                align-content: flex-start;
+                list-style-type: none;
+                height: 50%;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                background-color: #de9ff985;
+            }
+
+                .responsive-menu ul li {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    margin-top: auto;
+                }
+
+
+
+            .responsive-menu li a {
+                text-decoration: none;
+                color: #000;
+                display: block;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .responsive-menu ul li a:hover {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: #9c64b4;
+            }
+
+        #icon:checked ~ .responsive-menu {
+            top: 0vh;
+        }
+
+        .logo {
+            font-size: 25px;
+        }
+
+        .content-img:hover div {
+            z-index: 25;
+            width: 100%;
+            padding: 0;
+            font-size: 13px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .responsive-div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        fieldset label {
+            margin-bottom: 20px;
+        }
+
+        .responsive-icons {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<body>
+    <div class="box-shape" id="box">
+        <div>
+            <nav class="menu" id="navbar">
+                <div style="width: 30%;">
+                    <p class="logo">Chivu <span class="logo lower">Theodora</span> </p>
+                </div>
+                <div style="width: 70%;">
+                    <ul>
+                        <li>
+                            <a href="#Home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#About">About</a>
+                        </li>
+                        <li>
+                            <a href="#Education">Education</a>
+                        </li>
+                        <li>
+                            <a href="#Experience">Experience</a>
+                        </li>
+                        <li>
+                            <a href="#Portofolio">Portofolio</a>
+                        </li>
+                        <li>
+                            <a href="#Skills">Skills</a>
+                        </li>
+                        <li>
+                            <a href="#Contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <label class="lab" for="icon">
+            <i class="fas fa-bars hamburger fa-2x"></i>
+
+        </label>
+        <nav class="responsive-menu">
+
+            <input type="checkbox" id="icon" name="icon">
+            <div class="responsive-menu">
+                <ul>
+                    <li style="margin-top: 60%;">
+                        <a href="#Home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#About">About</a>
+                    </li>
+                    <li>
+                        <a href="#Education">Education</a>
+                    </li>
+                    <li>
+                        <a href="#Experience">Experience</a>
+                    </li>
+                    <li>
+                        <a href="#Portofolio">Portofolio</a>
+                    </li>
+                    <li>
+                        <a href="#Skills">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#Contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="Home">
+            <h1 style=" text-align: center;">Hi! I,m Theodora Chivu</h1>
+            <h4 style="text-align:center; text-indent:0;"> Welcome to my website </h4>
+        </div>
+        <div>
+            <hr />
+        </div>
+        <section id="About">
+            <h1><i style="margin-right:12px;" class="fa fa-user fa-2x"></i>About</h1>
+            
+            <div class="about">
+                <div style="width:25%">
+                    <img style="width:100%" src="D:\Vara21'\cv\me.jpeg" alt="" />
+                </div>
+                <div style="width:50%; display:flex; flex-direction: column;">
+                    <h4 style="font-size: 16px;">If you want to know more about me...</h4>
+                    <p>
+                        I recently graduated from University Politehnica of Bucharest where I studied Biomedical Engineering. I have a desire to become a software
+                        developer. I consider myself a curious person with many innovative ideas (a new prototype made for medicine). I like to gain knowledge from different activities. I have
+                        gained knowledge of HTML/CSS, JavaScript, Matlab and algorithms from creating several projects, which can be seen in the project section
+                    </p>
+                    <a href="D:\Vara21'\cv\CV.pdf" download="newfilename" target="_blank" style="text-decoration:none; color:#000;font-weight:bold; margin-left:auto; margin-right:auto;">Download CV</a>
+                </div>
+
+            </div>
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section id="Education">
+            <h1><i style="margin-right:12px;" class="fa fa-university fa-2x"></i>Education</h1>
+            <div style="display:flex; flex-direction: row;justify-content: space-evenly">
+                <div class="sub-section">
+                    <div class="date">
+                        2013-2017
+                    </div>
+                    <div>
+                        <p><strong>Colegiul National "Mihai Eminescu" Buzau</strong></p>
+                    </div>
+                    <div>
+                        <p><strong>Specialization: </strong>Mathematics & Computer Science</p>
+                    </div>
+                    <div>
+                        <p>Gained a Bacalaureat Diploma</p>
+                    </div>
+                </div>
+                <div class="sub-section">
+                    <div class="date">
+                        2017-2021
+                    </div>
+                    <div>
+                        <p><strong>Bachelor: University of Politehnica Bucharest</strong></p>
+                    </div>
+                    <div>
+                        <p>Faculty of Medical Engineering</p>
+
+                    </div>
+                    <div>
+                        <p><strong>Specialization:</strong> Medical equipment and systems</p>
+                    </div>
+                    <div>
+                        <p>Gained a Bachelor degree in Medical Engineering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="center sub-section">
+                <div class="date">
+                    2021-present
+                </div>
+                <div>
+                    <p><strong>Master: University of Politehnica Bucharest</strong></p>
+                </div>
+                <div>
+                    <p>Faculty of Automatic Control and Computers</p>
+                </div>
+                <div>
+                    <p><strong>Specialization:</strong> Computer systems in medicine</p>
+                </div>
+            </div>
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section id="Experience">
+            <h1><i style="margin-right:12px;" class="fa fa-briefcase fa-2x"></i>Experience</h1>
+            <div style="display:flex; flex-direction: row;justify-content: space-evenly; text-align:center;">
+                <div class="sub-section">
+                    <div class="date">
+                        nov. 2015 - feb. 2016
+                    </div>
+                    <div>
+                        <p><strong>Rehabilittion Assistant</strong></p>
+                    </div>
+                    <div>
+                        <p><strong>DGASPC Buzau</strong></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <p>Interacting and playing with children with autism</p>
+                            </li>
+                            <li>
+                                <p>Promote Acceptance of the Autism and Asperger community</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sub-section" style="text-align:center; ">
+                    <div class="date">
+                        iun. 2020 - sept. 2020
+                    </div>
+                    <div>
+                        <p><strong>Internship</strong></p>
+                    </div>
+                    <div>
+                        <p><strong>S&T Medtech</strong></p>
+
+                    </div>
+                    <div>
+                        <ul style=" padding-left: 10px; margin-top: 0;">
+                            <li>
+                                <p>
+                                    I have learned to offer the most advanced technologies, solutions and therapies to the Romanian public
+                                    and private healthcare specialists for a modern and efficient diagnosis and treatment of their patients.
+                                </p>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section id="Portofolio">
+
+            <h1><i style="margin-right:12px;" class="fa fa-folder-open fa-2x"></i>Portofolio</h1>
+
+            <div class="Portofolio sub-section">
+                <div>
+                    <h3 style="text-decoration: underline;">Technical Documentation Page</h3>
+                </div>
+                <div class="content-img">
+                    <a href="https://htmlpreview.github.io/?https://github.com/Theodora2010/Tech-Doc-Project/blob/master/index.html" title="Click to go to the project link">
+                        <img class="preview" src="D:\Vara21'\cv\Portofolio_Doc.JPG" alt="Tehnical Documentation page" />
+                        <div>
+                            <p>
+                                This technical documentation page includes the basic knowledge to JavaScript scripting language for Web Developer.
+                            </p>
+
+                            <p>
+                                For this project I have used only HTML and CSS. I have used <code>Flexbox</code> and <code>Media Query</code> to have a responsive web design.
+                                Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.
+                                A media query is an HTML/CSS functionality that allows the content of a Web page to adapt to the type of media that the page is being rendered in, such as a computer screen or that of a phone or tablet.
+                            </p>
+
+                        </div>
+                    </a>
+
+                </div>
+
+
+            </div>
+            <div class="Portofolio sub-section">
+                <div>
+                    <h3 style="text-decoration: underline;">Landing Page</h3>
+                </div>
+                <div class="content-img">
+                    <a href="https://htmlpreview.github.io/?https://github.com/Theodora2010/Landing-Page-Project/blob/master/index.html" title="Click to go to the project link">
+                        <img class="preview" src="D:\Vara21'\cv\Portofolio_Landing.JPG" alt="Landing Page" />
+                        <div>
+                            <p>
+                                This project is a landing page for Iphone 7
+                            </p>
+
+                            <p>
+                                For this project I have used only HTML and CSS. I have used <code>Flexbox</code> and <code>Media Query</code> to have a responsive web design.
+                                Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.
+                                A media query is an HTML/CSS functionality that allows the content of a Web page to adapt to the type of media that the page is being rendered in, such as a computer screen or that of a phone or tablet.
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="Portofolio sub-section">
+                <div>
+                    <h3 style="text-decoration: underline;">Survey</h3>
+                </div>
+                <div class="content-img">
+                    <a href="https://htmlpreview.github.io/?https://github.com/Theodora2010/Survey-Page/blob/master/index.html" title="Click to go to the project link">
+                        <img class="preview" src="D:\Vara21'\cv\Portofolio_Survey.JPG" alt="Survey Page" />
+                        <div>
+                            <p>
+                                This project is a Survey Page about COVID-19 disease.
+                            </p>
+
+                            <p>
+                                For this project I have used only HTML and CSS. I have used <code>Flexbox</code> and <code>Media Query</code> to have a responsive web design.
+                                Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.
+                                A media query is an HTML/CSS functionality that allows the content of a Web page to adapt to the type of media that the page is being rendered in, such as a computer screen or that of a phone or tablet.
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="Portofolio sub-section">
+                <div>
+                    <h3 style="text-decoration: underline;">CNN Classification ECG</h3>
+                </div>
+                <div class="content-img">
+                    <a href="https://github.com/Theodora2010/CNN-ECG" title="Click to go to the project link">
+                        <img class="preview" src="D:\Vara21'\cv\Portofolio_CNN.PNG" alt="CNN Classification" />
+                        <div>
+                            <p>
+                                This project can classify atrial fibrilation and normal electrocardiogram
+                            </p>
+
+                            <p>
+                                Within this project, an algorithm was developed based on the time-frequency representation of electrocardiogram (ECG) signals and the Convolutional Neuronal Network (CNN) architectural model for the automatic classification of atrial fibrilation (AF).
+                            </p>
+
+
+                            <p>
+                                The presented algorithm transforms the 1D ECG signal into 2D models of frequency densities, allowing the latest techniques of the CNN-based machine learning method to automatically classify AF. It analyzes the temporal frequency characteristics of atrial and ventricular activities, allowing the detection of FA using a very short period (a beat) of the ECG.
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="Portofolio sub-section">
+                <div>
+                    <h3 style="text-decoration: underline;">Data Acquisition and Processing</h3>
+                </div>
+                <div class="content-img" style="display: flex; flex-direction: row;">
+                    <a href="https://github.com/Theodora2010/ECG-acquisition-processing" title="Click to go to the project link">
+                        <img class="preview" src="D:\Vara21'\cv\BeFunky-collage.png" alt="Data acquisition and processing" />
+                        <div style=" font-size: 12px;">
+                            <p>
+                                I recently created an innovative prototype in medicine using IoT technology and Matlab programming with which people with heart problems or sports lovers can monitor their cardiac activities wearing a T-shirt with hardware components that transmit data taken from circuits via Bluetooth. Given that this concept does not yet exist on the market, I have composed a scientific article sent to the BIOCAS 2021 international conference to be held in Berlin.
+                            </p>
+
+                            <p>
+                                Realization of a real-time ECG signal acquisition algorithm using the Matlab program.
+
+                            </p>
+
+
+                            <p>
+                                Implementation of an algorithm in order to eliminate the frequent noises in the acquisition of the signal corresponding to the cardiac activity with the help of a filter passes above 0.5 Hz, the Wavelet transform and a moving mean filter.
+
+                            </p>
+
+
+                            <p>
+                                Creating an algorithm for detecting characteristic R waves by using an adaptive threshold for the calculation of the vital parameter (heart rate).
+                            </p>
+
+
+                            <p>
+                                Design of a purchased signal processing visualization application with an interface designed for ease of use by the user that contains a data saving function.
+
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section id="Skills">
+            <h1><i style="margin-right:12px;" class="fa fa-code fa-2x"></i>Skills</h1>
+
+            <div class="skills">
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <i class="fab fa-html5"></i>
+                        <h4>HTML5</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <i class="fab fa-css3-alt"></i>
+                        <h4>CSS3</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <i class="fab fa-js-square"></i>
+                        <h4>JavaScript</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="skills">
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <img alt="svgImg" style="width: 25px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzQzMDU3NiI+PHBhdGggZD0iTTE1MS4wNTA5NCw0MS4yOTM0NGwtNTcuOTI5MDYsLTMyLjU1OTA2Yy00LjM5NDA2LC0yLjQ1OTA2IC05Ljg0OTY5LC0yLjQ1OTA2IC0xNC4yNDM3NSwwbC01Ny45MjkwNiwzMi41NTkwNmMtNC40MzQzOCwyLjQ4NTk0IC03LjE4OTA2LDcuMTQ4NzUgLTcuMTg5MDYsMTIuMTQ3NXY2NS4xMTgxM2MwLDQuOTk4NzUgMi43NTQ2OSw5LjY2MTU2IDcuMTg5MDYsMTIuMTQ3NWw1Ny45MjkwNiwzMi41NTkwNmMyLjIwMzc1LDEuMjM2MjUgNC42NjI4MSwxLjg1NDM3IDcuMTIxODcsMS44NTQzN2MyLjQ1OTA2LDAgNC45MTgxMywtMC42MTgxMiA3LjEyMTg4LC0xLjg1NDM3bDU3LjkyOTA2LC0zMi41NTkwNmM0LjQzNDM4LC0yLjQ4NTk0IDcuMTg5MDYsLTcuMTQ4NzUgNy4xODkwNiwtMTIuMTQ3NXYtNjUuMTE4MTNjMCwtNC45OTg3NSAtMi43NTQ2OSwtOS42NjE1NiAtNy4xODkwNiwtMTIuMTQ3NXpNODYsMTI3LjI4Yy0yMi43NjMxMiwwIC00MS4yOCwtMTguNTE2ODcgLTQxLjI4LC00MS4yOGMwLC0yMi43NjMxMiAxOC41MTY4OCwtNDEuMjggNDEuMjgsLTQxLjI4YzEzLjAwNzUsMCAyNS4wMjA2Myw2LjAzMzQ0IDMyLjgyNzgxLDE2LjMxMzEzbC0xNS4wNzY4OCw4LjcyMDk0Yy00LjUyODQ0LC00Ljk1ODQ0IC0xMC45NjUsLTcuODM0MDYgLTE3Ljc1MDk0LC03LjgzNDA2Yy0xMy4yNzYyNSwwIC0yNC4wOCwxMC44MDM3NSAtMjQuMDgsMjQuMDhjMCwxMy4yNzYyNSAxMC44MDM3NSwyNC4wOCAyNC4wOCwyNC4wOGM2Ljc4NTk0LDAgMTMuMjIyNSwtMi44NzU2MiAxNy43NTA5NCwtNy44MzQwNmwxNS4wNzY4OCw4LjcyMDk0Yy03LjgwNzE5LDEwLjI3OTY5IC0xOS44MjAzMSwxNi4zMTMxMiAtMzIuODI3ODEsMTYuMzEzMTJ6TTEyNy4yOCw4OS40NGgtNi44OHY2Ljg4aC02Ljg4di02Ljg4aC02Ljg4di02Ljg4aDYuODh2LTYuODhoNi44OHY2Ljg4aDYuODh6TTE1MS4zNiw4OS40NGgtNi44OHY2Ljg4aC02Ljg4di02Ljg4aC02Ljg4di02Ljg4aDYuODh2LTYuODhoNi44OHY2Ljg4aDYuODh6Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4=" />
+                        <h4>C++</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <i class="fas fa-database"></i>
+                        <h4>SQL</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+                <div class="sub-section" style="height: fit-content;">
+                    <div style="display:flex;flex-direction: row; align-items: center;">
+                        <img style="width:25px;" src="https://img.icons8.com/fluency/48/000000/matlab.png" />
+                        <h4>Matlab</h4>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section id="Contact">
+            <h1><i style="margin-right:12px;" class="far fa-id-card fa-2x"></i>Contact</h1>
+            <form action="https://formsubmit.co/teo.chivu@yahoo.com" method="post" enctype="text/plain" name=”Contact”>
+                <fieldset>
+                    <div class="responsive-div fieldset">
+                        <input type="hidden" name="_subject" value="New submission from theodorachivu.com">
+                        <input type="hidden" name="_template" value="table">
+                        <label for="Name">
+                            Name:
+                            <input type="text" id="Name" name="Name" placeholder="Enter your full name" required />
+                        </label>
+                        <label for="email">
+                            Email:
+                            <input type="email" id="email" name="email" placeholder="Enter your email adress:" required />
+                        </label>
+                    </div>
+                    <div style=" margin-top: 12px;">
+                        <label for="message">
+                            Message:
+                            <textarea id="message" placeholder="Live a message..."></textarea>
+                        </label>
+
+                    </div>
+                    <br />
+                    <input type="submit" name="Send" id="submit" value="Send message" style="width:100px; display:block; margin-right:auto; margin-left:auto" />
+                </fieldset>
+            </form>
+            <div>
+                <hr />
+            </div>
+        </section>
+        <section>
+            <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
+                <div class="responsive-icons">
+                    <div >
+                        <i class="fas fa-envelope" style="padding-right:5px;"></i>
+                        <em>teo.chivu@yahoo.com</em>
+                        <p><em>theodorachivu@gmail.com</em></p>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone" style="padding-right:5px;"></i>
+                        +40 786 251 821
+                    </div>
+                </div>
+                <div class="responsive-icons">
+                    <div>
+                        <a style="text-decoration:none; color:#000;" href="https://github.com/Theodora2010"><i class="fab fa-github" style="padding-right:5px;" title="View my Github page"></i> Theodora2010</a>
+
+                    </div>
+                    <div>
+                        <a style="text-decoration:none; color:#000;" href="https://www.linkedin.com/in/theodora-chivu-200232178/"><i style="padding-right:5px;" title="View my LinkedIn page" class="fab fa-linkedin-in"></i> Theodora Chivu</a>
+                    </div>
+                </div>
+                
+            </div>
+            <div>
+                <hr />
+            </div>
+            <footer>
+                Copyright &copy; 2021 Chivu Theodora
+            </footer>
+        </section>
+    </div>
+
+
+</body>
